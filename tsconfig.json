@@ -1,0 +1,5 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist" // 将所有编译结果输出到dist目录下
+    }
+}

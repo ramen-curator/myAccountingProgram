@@ -1,0 +1,20 @@
+export default [
+    { year: 2021, mouth: 11, value: 9999  },
+    { year: 2021, mouth: 12, value: 9999},
+    { year: 2022, mouth: 1, value: 9999 },
+    { year: 2022, mouth: 2, value:9999 },
+    { year: 2022, mouth: 3, value: 9999 },
+    { year: 2022, mouth: 4, value: 9999  },
+    { year: 2022, mouth: 5, value: 9999  },
+    { year: 2022, mouth: 6, value:9999  },
+    { year: 2022, mouth: 7, value:9999  },
+    { year: 2022, mouth: 8, value:9999  },
+    { year: 2022, mouth: 9, value:9999  },
+    { year: 2022, mouth: 10, value:9999  },
+    { year: 2022, mouth: 11, value:9999  },
+    { year: 2022, mouth:12, value:9999  },
+    { year: 2023, mouth: 1, value:9999  },
+    { year: 2023, mouth:2, value:9999  },
+    { year: 2023, mouth: 3, value:9999  },
+  ];
+  
