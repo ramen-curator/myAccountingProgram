@@ -1,13 +1,5 @@
-import 贷款 from "../data/贷款";
-import { getValue } from "../helper";
-
 export const getObjSum = (o: { [name: string]: number }) =>
   Object.keys(o).reduce((s, k) => s + o[k], 0);
-
-// 取对应月份的债务
-export const getLoanValue = (y, m) => {
-  return 贷款.reduce((s, o) => s + getValue(o, y, m), 0);
-};
 
 interface dateObj {
   y: number;

@@ -2,8 +2,8 @@ import {
   lowestLife as 最低生活水平,
   // willCWage,
 } from "./data/constant";
-import { getObjSum, getLoanValue, getDateRange } from "./util/util";
-import { getHomeRentAfterSharingBy } from "./compute";
+import { getObjSum, getDateRange } from "./util/util";
+import { getHomeRentAfterSharingBy, getLoanValue } from "./compute";
 import 工资_monthlyList from "./data/工资";
 import { getValue } from "./helper";
 
@@ -16,7 +16,7 @@ const getEveryMonthRest = (needPay: number[]) =>
       year: y,
       month: m,
       value: (
-        getValue(工资_monthlyList, y,m) -
+        getValue(工资_monthlyList, y, m) -
         myMustPay -
         getLoanValue(y, m) -
         needPay.reduce((s, v) => s + v, 0)
@@ -33,7 +33,7 @@ const 贷款总额 = comingDate.reduce((s, { y, m }) => {
 }, 0);
 console.log("贷款总额", 贷款总额.toFixed(2));
 
-const 余钱总额= getEveryMonthRest(needPay).reduce((s, { value }) => {
+const 余钱总额 = getEveryMonthRest(needPay).reduce((s, { value }) => {
   return s + Number(value);
 }, 0);
 console.log("余钱总额", 余钱总额.toFixed(2));
