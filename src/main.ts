@@ -1,10 +1,11 @@
 import {
   lowestLife as 最低生活水平,
   // willCWage,
-  getYXWillCWage,
 } from "./data/constant";
 import { getObjSum, getLoanValue, getDateRange } from "./util/util";
 import { getHomeRentAfterSharingBy } from "./compute";
+import 工资_monthlyList from "./data/工资";
+import { getValue } from "./helper";
 
 const comingDate = getDateRange({ y: 2021, m: 12 }, { y: 2023, m: 3 });
 
@@ -15,7 +16,7 @@ const getEveryMonthRest = (needPay: number[]) =>
       year: y,
       month: m,
       value: (
-        getYXWillCWage(y,m) -
+        getValue(工资_monthlyList, y,m) -
         myMustPay -
         getLoanValue(y, m) -
         needPay.reduce((s, v) => s + v, 0)
