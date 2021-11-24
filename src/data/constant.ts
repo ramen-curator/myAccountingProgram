@@ -1,5 +1,6 @@
 import ta的工资 from "./工资";
 
+// 房租
 const homeRent = 1800;
 export const shouldPayHomeRent = homeRent / 2; // 因为我合租，所以除以2
 
@@ -12,8 +13,8 @@ export const lowestLife = {
   给妈妈: 1500,
 };
 
+// 到手工资 · 不变化版
 const getWillCWage = () => {
-  // 到手工资
   const nowWage = 9000;
   const now医保 = 100;
   const 医保率 = Number((now医保 / nowWage).toFixed(2));
@@ -22,6 +23,7 @@ const getWillCWage = () => {
   return willCWage;
 };
 
+// 到手工资 · 写在 工资.ts 里的
 export const getYXWillCWage = (y, m) => {
   const getValue = (arr: typeof ta的工资): number => {
     // @ts-ignore 'find' does not exist on type '{ year: number; mouth: number; value: number; }[]'
