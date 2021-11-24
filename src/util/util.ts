@@ -1,7 +1,5 @@
 import 花呗 from "../data/贷款/花呗";
-import 借呗 from "../data/贷款/借呗";
-import 京东白条 from "../data/贷款/京东白条";
-import 贷款 from '../data/贷款';
+import 贷款 from "../data/贷款";
 
 export const getObjSum = (o: { [name: string]: number }) =>
   Object.keys(o).reduce((s, k) => s + o[k], 0);
@@ -14,7 +12,8 @@ export const getLoanValue = (y, m) => {
     if (result === undefined) return 0;
     return result.value;
   };
-  return getValue(花呗) + getValue(借呗) + getValue(京东白条);
+
+  return 贷款.reduce((s, o: typeof 花呗) => s + getValue(o), 0);
 };
 
 interface dateObj {

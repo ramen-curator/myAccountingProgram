@@ -21,7 +21,7 @@ fs.readdirSync(dirname)
   )
   .map((fileBasename) => {
     const filePath = path.join(dirname, fileBasename);
-    files.push(require(filePath));
+    files.push(require(filePath).default);
   });
 
 export default files;
