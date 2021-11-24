@@ -2,7 +2,7 @@ import {
   lowestLife as 最低生活水平,
   // willCWage,
 } from "./data/constant";
-import { getObjSum, getDateRange } from "./util/util";
+import { getObjSum, getDateRange } from "./util";
 import { getHomeRentAfterSharingBy, getLoanValue } from "./compute";
 import 工资_monthlyList from "./data/工资";
 import { getValue } from "./helper";
