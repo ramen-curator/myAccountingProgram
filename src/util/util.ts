@@ -1,19 +1,19 @@
-import 花呗 from "../data/贷款/花呗";
 import 贷款 from "../data/贷款";
+import { loan } from "../data/贷款/constant";
 
 export const getObjSum = (o: { [name: string]: number }) =>
   Object.keys(o).reduce((s, k) => s + o[k], 0);
 
 // 取对应月份的债务
 export const getLoanValue = (y, m) => {
-  const getValue = (arr: typeof 花呗): number => {
+  const getValue = (arr: loan): number => {
     // @ts-ignore 'find' does not exist on type '{ year: number; mouth: number; value: number; }[]'
     const result = arr.find((o) => o.mouth === m && o.year === y);
     if (result === undefined) return 0;
     return result.value;
   };
 
-  return 贷款.reduce((s, o: typeof 花呗) => s + getValue(o), 0);
+  return 贷款.reduce((s, o) => s + getValue(o), 0);
 };
 
 interface dateObj {
