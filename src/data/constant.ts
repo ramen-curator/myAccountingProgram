@@ -1,8 +1,8 @@
 // 房租
 export const homeRent = 1800;
 
+// 最低生活水平
 export const lowestLife = {
-  // 最低生活水平
   吃饭: 1000,
   话费: 100,
   VPN: 0,
@@ -31,5 +31,5 @@ class MyWage {
     return wage * insuranceRate;
   }
 }
-// 到手工资 · 不变化版
+// 到手工资 · 固定工资版
 export const { willCWage } = new MyWage();
