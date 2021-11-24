@@ -1,3 +1,4 @@
+/**本文件仅用于import该目录下的其他文件，然后export出去 */
 // 这种import引入方式才有typescript提示
 import * as fs from "fs";
 import * as path from "path";
