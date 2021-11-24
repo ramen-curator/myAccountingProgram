@@ -5,8 +5,6 @@ import {
   getYXWillCWage,
 } from "./data/constant";
 import { getObjSum, getLoanValue, getDateRange } from "./util";
-import 花呗 from "./data/贷款/花呗";
-import 借呗 from "./data/贷款/借呗";
 
 const comingDate = getDateRange({ y: 2021, m: 12 }, { y: 2023, m: 3 });
 
