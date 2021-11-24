@@ -41,7 +41,11 @@ export const getDateRange = (startDate: monthObj, endDate: monthObj) => {
     const years: monthObj[] = initIntRange(startDate.y + 1, endDate.y)
       .map((y) => initMonthsInAYear(y, 1, 12))
       .flat(1);
-    const monthsEndYear: monthObj[] = initMonthsInAYear(endDate.y, 1, endDate.m);
+    const monthsEndYear: monthObj[] = initMonthsInAYear(
+      endDate.y,
+      1,
+      endDate.m
+    );
 
     return [...monthsStartYear, ...years, ...monthsEndYear];
   }
