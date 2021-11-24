@@ -31,7 +31,7 @@ export const getDateRange = (startDate: monthObj, endDate: monthObj) => {
       startYearDate.push({ y: startDate.y, m });
     }
     for (let m = 1; m <= endDate.m; m++) {
-      //@ts-ignore
+      // @ts-ignore Type 'number' is not assignable to type '1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12'.ts(2322)
       endYearDate.push({ y: endDate.y, m });
     }
     for (let y = startDate.y + 1; y < endDate.y; y++) {
