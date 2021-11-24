@@ -1,5 +1,4 @@
-import 贷款 from "../data/贷款";
-import { loan } from "../data/贷款/constant";
+import 贷款, { loan } from "../data/贷款";
 
 export const getObjSum = (o: { [name: string]: number }) =>
   Object.keys(o).reduce((s, k) => s + o[k], 0);

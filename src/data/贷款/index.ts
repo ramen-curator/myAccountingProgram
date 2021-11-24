@@ -1,8 +1,14 @@
-/**本文件仅用于import该目录下的其他文件，然后export出去 */
+/**本文件主要用于import该目录下的其他文件，然后export出去 */
 // 这种import引入方式才有typescript提示
 import * as fs from "fs";
 import * as path from "path";
-import type { loan } from "./constant";
+
+interface loanItem {
+  year: number;
+  mouth: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  value: number;
+}
+export type loan = loanItem[];
 
 // __filename是指本文件的具体地址，比方/Users/..../index.js
 // path.basename(__filename)是指本文件的名字，比方index.js
