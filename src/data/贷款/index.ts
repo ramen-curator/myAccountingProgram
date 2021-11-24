@@ -7,7 +7,7 @@ import * as path from "path";
 // path.basename(__filename)是指本文件的名字，比方index.js
 const basename = path.basename(__filename);
 const dirname = __dirname; // 本文件的路径
-const files = {};
+const files = [];
 
 // readdirSync读取目录的内容。
 fs.readdirSync(dirname)
@@ -20,9 +20,8 @@ fs.readdirSync(dirname)
       file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
   )
   .map((fileBasename) => {
-    const fileName = fileBasename.slice(0, -3);
     const filePath = path.join(dirname, fileBasename);
-    files[fileName] = require(filePath);
+    files.push(require(filePath));
   });
 
 export default files;
