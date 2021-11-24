@@ -2,8 +2,7 @@ import ta的工资 from "./工资";
 import { getValue } from "../helper";
 
 // 房租
-const homeRent = 1800;
-export const shouldPayHomeRent = homeRent / 2; // 因为我合租，所以除以2
+export const homeRent = 1800;
 
 export const lowestLife = {
   // 最低生活水平

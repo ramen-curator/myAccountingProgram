@@ -1,10 +1,10 @@
 import {
-  shouldPayHomeRent,
   lowestLife as 最低生活水平,
   // willCWage,
   getYXWillCWage,
 } from "./data/constant";
 import { getObjSum, getLoanValue, getDateRange } from "./util/util";
+import { getHomeRentAfterSharingBy } from "./compute";
 
 const comingDate = getDateRange({ y: 2021, m: 12 }, { y: 2023, m: 3 });
 
@@ -24,7 +24,7 @@ const getEveryMonthRest = (needPay: number[]) =>
   });
 
 const needPay = [];
-needPay.push(shouldPayHomeRent);
+needPay.push(getHomeRentAfterSharingBy(2));
 console.log("每个月剩钱", getEveryMonthRest(needPay));
 
 const 贷款总额 = comingDate.reduce((s, { y, m }) => {
