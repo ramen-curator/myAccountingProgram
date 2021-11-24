@@ -1,11 +1,12 @@
-import 贷款, { loan } from "../data/贷款";
+import 贷款 from "../data/贷款";
+import { dateValueArr } from "../constant";
 
 export const getObjSum = (o: { [name: string]: number }) =>
   Object.keys(o).reduce((s, k) => s + o[k], 0);
 
 // 取对应月份的债务
 export const getLoanValue = (y, m) => {
-  const getValue = (arr: loan): number => {
+  const getValue = (arr: dateValueArr): number => {
     // @ts-ignore 'find' does not exist on type '{ year: number; mouth: number; value: number; }[]'
     const result = arr.find((o) => o.mouth === m && o.year === y);
     if (result === undefined) return 0;

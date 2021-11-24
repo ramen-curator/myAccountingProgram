@@ -2,19 +2,13 @@
 // 这种import引入方式才有typescript提示
 import * as fs from "fs";
 import * as path from "path";
-
-interface loanItem {
-  year: number;
-  mouth: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  value: number;
-}
-export type loan = loanItem[];
+import type { dateValueArr } from "../../constant";
 
 // __filename是指本文件的具体地址，比方/Users/..../index.js
 // path.basename(__filename)是指本文件的名字，比方index.js
 const basename = path.basename(__filename);
 const dirname = __dirname; // 本文件的路径
-const files: loan[] = [];
+const files: dateValueArr[] = [];
 
 // readdirSync读取目录的内容。
 fs.readdirSync(dirname)
