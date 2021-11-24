@@ -26,22 +26,23 @@ const initIntRange = (s: number, e: number) => {
 //获取日期范围
 export const getDateRange = (startDate: monthObj, endDate: monthObj) => {
   const diffYear = endDate.y - startDate.y; // 相差几年
-  if (diffYear < 0) throw new Error("结束日期应大于开始日期");
-  if (diffYear === 0) {
-    const diffMonth = endDate.m - startDate.m; // 相差几月
-    if (diffMonth < 0) throw new Error("结束日期应大于开始日期");
+  const diffMonth = endDate.m - startDate.m; // 同一年时，相差几月
+  if (diffYear < 0 || (diffYear === 0 && diffMonth < 0))
+    throw new Error("结束日期应大于开始日期");
+
+  if (diffYear === 0)
     return initMonthsInAYear(startDate.y, startDate.m, endDate.m);
-  }
   if (diffYear > 0) {
     const startYearDate: monthObj[] = initMonthsInAYear(
       startDate.y,
       startDate.m,
       12
     );
-    const endYearDate: monthObj[] = initMonthsInAYear(endDate.y, 1, endDate.m);
     const years: monthObj[] = initIntRange(startDate.y + 1, endDate.y)
       .map((y) => initMonthsInAYear(y, 1, 12))
       .flat(1);
+    const endYearDate: monthObj[] = initMonthsInAYear(endDate.y, 1, endDate.m);
+
     return [...startYearDate, ...years, ...endYearDate];
   }
 };
