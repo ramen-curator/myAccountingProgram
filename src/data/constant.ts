@@ -10,7 +10,6 @@ export const lowestLife = {
   给妈妈: 1500,
 };
 
-// 固定工资版
 class MyFixedWage {
   nowWage = 1000; // 目前工资
   now医保 = 100;
@@ -32,5 +31,4 @@ class MyFixedWage {
     return wage * insuranceRate;
   }
 }
-// 到手工资 · 固定工资版
 export const { willCWage } = new MyFixedWage();
