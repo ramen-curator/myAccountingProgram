@@ -17,7 +17,7 @@ export const getDateRange = (startDate: monthObj, endDate: monthObj) => {
   if (diffYear === 0) {
     const diffMonth = endDate.m - startDate.m;
     if (diffMonth < 0) throw new Error("日期不对2");
-    let result: monthObj[] = [];
+    const result: monthObj[] = [];
     for (let m = startDate.m; m <= endDate.m; m++) {
       result.push({ y: startDate.y, m });
     }
