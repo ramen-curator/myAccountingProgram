@@ -33,7 +33,7 @@ export const getDateRange = (startDate: monthObj, endDate: monthObj) => {
   if (diffYear === 0)
     return initMonthsInAYear(startDate.y, startDate.m, endDate.m);
   if (diffYear > 0) {
-    const startYearDate: monthObj[] = initMonthsInAYear(
+    const startYearMonth: monthObj[] = initMonthsInAYear(
       startDate.y,
       startDate.m,
       12
@@ -41,8 +41,8 @@ export const getDateRange = (startDate: monthObj, endDate: monthObj) => {
     const years: monthObj[] = initIntRange(startDate.y + 1, endDate.y)
       .map((y) => initMonthsInAYear(y, 1, 12))
       .flat(1);
-    const endYearDate: monthObj[] = initMonthsInAYear(endDate.y, 1, endDate.m);
+    const endYearMonth: monthObj[] = initMonthsInAYear(endDate.y, 1, endDate.m);
 
-    return [...startYearDate, ...years, ...endYearDate];
+    return [...startYearMonth, ...years, ...endYearMonth];
   }
 };
