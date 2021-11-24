@@ -1,6 +1,7 @@
-import 花呗 from "./data/贷款/花呗";
-import 借呗 from "./data/贷款/借呗";
-import 京东白条 from "./data/贷款/京东白条";
+import 花呗 from "../data/贷款/花呗";
+import 借呗 from "../data/贷款/借呗";
+import 京东白条 from "../data/贷款/京东白条";
+import 贷款 from '../data/贷款';
 
 export const getObjSum = (o: { [name: string]: number }) =>
   Object.keys(o).reduce((s, k) => s + o[k], 0);

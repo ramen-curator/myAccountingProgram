@@ -4,7 +4,7 @@ import {
   // willCWage,
   getYXWillCWage,
 } from "./data/constant";
-import { getObjSum, getLoanValue, getDateRange } from "./util";
+import { getObjSum, getLoanValue, getDateRange } from "./util/util";
 
 const comingDate = getDateRange({ y: 2021, m: 12 }, { y: 2023, m: 3 });
 
