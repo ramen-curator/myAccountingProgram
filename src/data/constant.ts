@@ -1,4 +1,5 @@
 import ta的工资 from "./工资";
+import { getValue } from "../helper";
 
 // 房租
 const homeRent = 1800;
@@ -28,13 +29,5 @@ const getWillCWage = () => {
 };
 
 // 到手工资 · 写在 工资.ts 里的
-export const getYXWillCWage = (y, m) => {
-  const getValue = (arr: typeof ta的工资): number => {
-    // @ts-ignore 'find' does not exist on type '{ year: number; mouth: number; value: number; }[]'
-    const result = arr.find((o) => o.mouth === m && o.year === y);
-    if (result === undefined) return 0;
-    return result.value;
-  };
-  return getValue(ta的工资);
-};
+export const getYXWillCWage = (y, m) => getValue(ta的工资,y,m);
 // export const willCWage = getWillCWage();
