@@ -35,7 +35,7 @@ class MyWage {
   }
 }
 // 到手工资 · 不变化版
-export const willCWage = new MyWage().willCWage;
+export const { willCWage } = new MyWage();
 
 // 到手工资 · 写在 工资.ts 里的
 export const getYXWillCWage = (y, m) => getValue(ta的工资, y, m);
