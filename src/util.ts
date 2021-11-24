@@ -13,7 +13,7 @@ const getAYearMonth = (y: number): monthObj => {
 //获取日期范围
 export const getDateRange = (startDate: monthObj, endDate: monthObj) => {
   const diffYear = endDate.y - startDate.y; // 相差几年
-  if (diffYear < 0) throw new Error("结束月份应大于开始月份");
+  if (diffYear < 0) throw new Error("结束日期应大于开始日期");
   if (diffYear === 0) {
     const diffMonth = endDate.m - startDate.m;
     if (diffMonth < 0) throw new Error("日期不对2");
