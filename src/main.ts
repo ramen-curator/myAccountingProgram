@@ -9,7 +9,6 @@ import { getValue } from "./helper";
 
 const comingDate = getDateRange({ y: 2021, m: 12 }, { y: 2023, m: 3 });
 
-const myMustPay = getObjSum(最低生活水平);
 const getEveryMonthRest = (needPay: number[]) =>
   comingDate.map(({ y, m }) => {
     return {
@@ -17,7 +16,7 @@ const getEveryMonthRest = (needPay: number[]) =>
       month: m,
       value: (
         getValue(工资_monthlyList, y, m) -
-        myMustPay -
+        getObjSum(最低生活水平) -
         getLoanValue(y, m) -
         needPay.reduce((s, v) => s + v, 0)
       ).toFixed(2),
@@ -38,6 +37,8 @@ const 余钱总额 = getEveryMonthRest(needPay).reduce((s, { value }) => {
 }, 0);
 console.log("余钱总额", 余钱总额.toFixed(2));
 
+// todo 一年挣多少钱
+
 // const 三个月攒下来的钱 = getDateRange(
 //   { y: 2021, m: 12 },
 //   { y: 2022, m: 2 }
@@ -45,7 +46,7 @@ console.log("余钱总额", 余钱总额.toFixed(2));
 //   (s, { y, m }) =>
 //     s +
 //     willCWage -
-//     myMustPay -
+//     getObjSum(最低生活水平) -
 //     getLoanValue(y, m) -
 //     needPay.reduce((s, v) => s + v, 0),
 //   0
