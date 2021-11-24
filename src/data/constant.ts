@@ -1,10 +1,7 @@
 import ta的工资 from "./工资";
 
-const getShouldPayRent = () => {
-  const newRent = 1800; // 新房的房租
-  return newRent / 2; // 合租
-};
-export const shouldPayNewRent = getShouldPayRent(); // 一方应付的房租钱
+const homeRent = 1800;
+export const shouldPayHomeRent = homeRent / 2; // 因为我合租，所以除以2
 
 export const lowestLife = {
   // 最低生活水平

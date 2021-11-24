@@ -1,5 +1,5 @@
 import {
-  shouldPayNewRent,
+  shouldPayHomeRent,
   lowestLife as 最低生活水平,
   // willCWage,
   getYXWillCWage,
@@ -24,7 +24,7 @@ const getEveryMonthRest = (needPay: number[]) =>
   });
 
 const needPay = [];
-needPay.push(shouldPayNewRent);
+needPay.push(shouldPayHomeRent);
 console.log("每个月剩钱", getEveryMonthRest(needPay));
 
 const 贷款总额 = comingDate.reduce((s, { y, m }) => {
