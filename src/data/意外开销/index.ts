@@ -6,5 +6,5 @@ import { importantAllTheFile } from "../../util";
 // path.basename(__filename)是指本文件的名字，比方index.js
 const basename = path.basename(__filename);
 const dirname = __dirname; // 本文件的路径
-
-export default importantAllTheFile(basename, dirname);
+const files = importantAllTheFile(basename, dirname);
+export default files;
