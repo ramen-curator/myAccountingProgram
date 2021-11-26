@@ -46,6 +46,18 @@ export const getLoanTotalFromRange = (dateRange: monthObj[]) => {
   return Number(result.toFixed(2));
 };
 
-// 获取剩钱总额
+// 获取期间剩钱总额
 export const getRestTotalFromRange = (dateValueArr: dateValueArr) =>
   getValueTotal(dateValueArr);
+
+// 获取期间工资合计
+export const getWageTotalFromRange = (dateRange: monthObj[], wage?: number) => {
+  if (wage) {
+    let result = 0;
+    for (let i = 0; i < dateRange.length; i++) {
+      result += wage;
+    }
+    return result;
+  }
+  return getTotalFromRange(dateRange, 工资_monthlyList);
+};

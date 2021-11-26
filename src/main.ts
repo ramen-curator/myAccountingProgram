@@ -5,6 +5,7 @@ import {
   getEveryMonthRest,
   getLoanTotalFromRange,
   getRestTotalFromRange,
+  getWageTotalFromRange
 } from "./compute";
 
 // 开始年份月份，结束年份月份
@@ -14,15 +15,13 @@ const dateRange = getDateRange(dateRangeStr);
 const needPay = [];
 needPay.push(getHomeRentAfterSharingBy(2)); // 应付房租
 console.log(dateRangeStr);
-console.log("在此期间：");
 console.log("每个月剩钱", getEveryMonthRest(dateRange, needPay));
-console.log("贷款总额", getLoanTotalFromRange(dateRange));
+console.log("期间贷款总额", getLoanTotalFromRange(dateRange));
 console.log(
-  "剩钱总额",
+  "期间剩钱总额",
   getRestTotalFromRange(getEveryMonthRest(dateRange, needPay))
 );
-
-// todo 一年挣多少钱
+console.log("期间工资合计", getWageTotalFromRange(dateRange))
 
 // const 三个月攒下来的钱 = getDateRange(
 //   { y: 2021, m: 12 },
