@@ -1,7 +1,4 @@
-import {
-  lowestLife as 最低生活水平,
-  // willCWage,
-} from "./data/constant";
+import { lowestLife as 最低生活水平, willCWage } from "./data/constant";
 import { getObjSum, getDateRange } from "./util";
 import { getHomeRentAfterSharingBy, getLoanValue } from "./compute";
 import 工资_monthlyList from "./data/工资";
@@ -10,13 +7,14 @@ import { getValue } from "./helper";
 // 开始年份月份，结束年份月份
 const dateRange = getDateRange({ y: 2021, m: 12 }, { y: 2023, m: 3 });
 
-const getEveryMonthRest = (needPay: number[]) =>
+const getEveryMonthRest = (needPay: number[], wage?: number) =>
   dateRange.map(({ y, m }) => {
+    const theWage = wage ? wage : getValue(工资_monthlyList, y, m);
     return {
       year: y,
       month: m,
       value: (
-        getValue(工资_monthlyList, y, m) -
+        theWage -
         getObjSum(最低生活水平) -
         getLoanValue(y, m) -
         needPay.reduce((s, v) => s + v, 0)
