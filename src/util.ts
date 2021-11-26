@@ -123,7 +123,7 @@ const findOutDateRange = (dateValueArr: dateValueArr) => {
   const maxYear = Math.max(...dateValueArr.map((o) => o.year));
   const maxYearArr = dateValueArr.filter((o) => o.year === maxYear);
   const maxMonth = Math.max(...maxYearArr.map((o) => o.month));
-  
+
   return getDateRange(`${minYear}/${minMonth}~${maxYear}/${maxMonth}`);
 };
 
@@ -139,4 +139,9 @@ export const getDateValueArrFromFiles = (
     };
   });
   return result;
+};
+
+export const getDateValueArrFromAllTheFile = (basename, dirname) => {
+  const files = importantAllTheFile(basename, dirname);
+  return getDateValueArrFromFiles(files);
 };
