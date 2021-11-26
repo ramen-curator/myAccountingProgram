@@ -14,7 +14,7 @@ export const getHomeRentAfterSharingBy = (peopleNum: number) =>
 // 如果没写第三个参数，每个月工资就按“/data/工资”文件那样地算
 export const getEveryMonthRest = (
   dateRange: monthObj[],
-  needPay: number[],
+  fixedPayMonthly: number[],
   wage?: number
 ) =>
   dateRange.map(({ year, month }) => {
@@ -26,7 +26,7 @@ export const getEveryMonthRest = (
         (
           theWage -
           getValue(贷款, year, month)-
-          needPay.reduce((s, v) => s + v, 0)
+          fixedPayMonthly.reduce((s, v) => s + v, 0)
         ).toFixed(2)
       ),
     };
