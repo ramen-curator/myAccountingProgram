@@ -11,7 +11,7 @@ export const getHomeRentAfterSharingBy = (peopleNum: number) =>
 
 // 取对应月份的债务
 export const getLoanValue = (y, m) => {
-  return 贷款.reduce((s, o) => s + getValue(o, y, m), 0);
+  return getValue(贷款, y, m);
 };
 
 // 获取每月剩钱，是工资-最低生活水平-贷款-每月买点啥
