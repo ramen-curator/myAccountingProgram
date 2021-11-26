@@ -92,11 +92,8 @@ export const getDateRange = (dateRangeStr: string) => {
  * @param files import文件后存放的地方
  * @returns files
  */
-export const importantAllTheFile = (
-  basename: string,
-  dirname: string,
-  files: dateValueArr[]
-) => {
+export const importantAllTheFile = (basename: string, dirname: string) => {
+  const files: dateValueArr[] = [];
   // readdirSync读取目录的内容。
   fs.readdirSync(dirname)
     .filter(
