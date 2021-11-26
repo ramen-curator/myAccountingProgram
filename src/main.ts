@@ -3,18 +3,20 @@ import {
   getHomeRentAfterSharingBy,
   getLoanValue,
   getEveryMonthRest,
-  getLoanTotal,
+  getLoanTotalFromRange,
 } from "./compute";
 
 // 开始年份月份，结束年份月份
-const dateRange = getDateRange("2021/12 ~ 2023/3");
+const dateRangeStr = "2021/12 ~ 2023/3";
+const dateRange = getDateRange(dateRangeStr);
 
 const needPay = [];
-needPay.push(getHomeRentAfterSharingBy(2));// 应付房租
-
+needPay.push(getHomeRentAfterSharingBy(2)); // 应付房租
+console.log(dateRangeStr);
+console.log("在此期间：");
 console.log("每个月剩钱", getEveryMonthRest(dateRange, needPay));
 
-console.log("贷款总额", getLoanTotal(dateRange));
+console.log("期间贷款总额", getLoanTotalFromRange(dateRange));
 
 const 余钱总额 = getEveryMonthRest(dateRange, needPay).reduce(
   (s, { value }) => {

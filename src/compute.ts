@@ -2,7 +2,7 @@ import { homeRent, lowestLife as 最低生活水平 } from "./data/constant";
 import 工资_monthlyList from "./data/工资";
 import 贷款 from "./data/贷款";
 import { getValue } from "./helper";
-import { getObjSum, getDateRange } from "./util";
+import { getObjSum, getValueTotal, getTotalFromRange } from "./util";
 import { monthObj } from "./constant";
 
 // 合租后的房租
@@ -37,7 +37,7 @@ export const getEveryMonthRest = (
   });
 
 // 获取期间贷款总额
-export const getLoanTotal = (dateRange: monthObj[]) => {
+export const getLoanTotalFromRange = (dateRange: monthObj[]) => {
   const result = dateRange.reduce((s, { year, month }) => {
     return s + getLoanValue(year, month);
   }, 0);
