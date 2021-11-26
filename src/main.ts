@@ -1,7 +1,8 @@
-import { lowestLife as 最低生活水平 } from "./data/constant";
+import { lowestLife as 最低生活水平, willCWage } from "./data/constant";
 import { getObjSum, getDateRange } from "./util";
 import 贷款 from "./data/贷款";
-import 意外开销 from "./data/意外开销";
+import 浮动开销 from "./data/浮动开销";
+import 浮动收入 from "./data/浮动收入";
 import {
   getHomeRentAfterSharingBy,
   getEveryMonthRest,
@@ -20,7 +21,13 @@ fixedPayMonthly.push(getHomeRentAfterSharingBy(2)); // 应付房租
 
 const floatPay = [];
 floatPay.push(贷款);
-floatPay.push(意外开销);
+floatPay.push(浮动开销);
+
+const fixedGet = [];
+fixedGet.push(willCWage);// 固定工资
+
+const floatGet = [];
+floatGet.push(浮动收入);
 
 console.log(dateRangeStr);
 console.log(
