@@ -11,6 +11,16 @@ import {
   getWageTotalFromRange,
 } from "./compute";
 
+// todo 将 贷款 合并到 浮动开销里
+// todo 将 工资 合并到 浮动收入里
+// todo 将 固定开销、浮动开销、固定收入、浮动收入，列入计算里
+
+// todo 大计划，React实现。
+// 进入网页的时候先把以上值存到 localStorage 里，然后再渲染出来
+// 于是可以修改（localStorage）、存储（如果localStorage里有值，就读localStorage里的，不存进去）
+// 如果localStorage不行，那就用那啥数据库的，我记得网页有这种数据库
+// 于是就变成一个网页了
+
 // 开始年份月份，结束年份月份
 const dateRangeStr = "2021/12 ~ 2023/3";
 const dateRange = getDateRange(dateRangeStr);
@@ -24,7 +34,7 @@ floatPay.push(贷款);
 floatPay.push(浮动开销);
 
 const fixedGet = [];
-fixedGet.push(willCWage);// 固定工资
+fixedGet.push(willCWage); // 固定工资
 
 const floatGet = [];
 floatGet.push(浮动收入);
