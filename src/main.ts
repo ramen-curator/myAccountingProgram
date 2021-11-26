@@ -12,8 +12,8 @@ const needPay = [];
 needPay.push(getHomeRentAfterSharingBy(2));// 应付房租
 console.log("每个月剩钱", getEveryMonthRest(dateRange, needPay));
 
-const 贷款总额 = dateRange.reduce((s, { y, m }) => {
-  return s + getLoanValue(y, m);
+const 贷款总额 = dateRange.reduce((s, { year, month }) => {
+  return s + getLoanValue(year, month);
 }, 0);
 console.log("贷款总额", 贷款总额.toFixed(2));
 
