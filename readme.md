@@ -9,8 +9,18 @@ sudo chmod 777 ./run.sh
 npm start
 ```
 ## Win
+[如何安装node](https://www.cnblogs.com/minxiang-luo/p/12490526.html)
+### 如果你要在命令行里跑
+1. git bash会装吧，装好后路径放环境变量里。  
+  [如何装bash](https://support.huaweicloud.com/usermanual-codehub/codehub_hlp_0001.html)，[如何配置环境变量](https://jingyan.baidu.com/article/8275fc86403a3546a03cf6f0.html)
+2. 打开命令行
+```
+npm install
+npm run win
+```
 ### 如果你要在vscode里跑
-1. git bash会装吧，装好后路径放环境变量里
+1. git bash会装吧，装好后路径放环境变量里。    
+  [如何装bash](https://support.huaweicloud.com/usermanual-codehub/codehub_hlp_0001.html)，[如何配置环境变量](https://jingyan.baidu.com/article/8275fc86403a3546a03cf6f0.html)
 2. vscode的settings.json里，加上`"terminal.integrated.defaultProfile.windows":"Git Bash",`
 3. 重启vscode
 4. 打开终端 
@@ -18,13 +28,7 @@ npm start
 npm install
 npm run win
 ```
-### 如果你要在命令行里跑
-1. git bash会装吧，装好后路径放环境变量里
-2. 打开命令行
-```
-npm install
-npm run win
-```
+
 
 
 # 用法
