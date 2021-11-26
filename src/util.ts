@@ -1,18 +1,7 @@
 export const getObjSum = (o: { [name: string]: number }) =>
   Object.keys(o).reduce((s, k) => s + o[k], 0);
 
-const parseDateRangeStr = (str: string) => {
-  if (
-    str.split("~").length != 2 ||
-    str.split("~").some((ym) => ym.split("/").length !== 2)
-  ) {
-    throw new Error("起始格式错误，格式应为2021/1～2023/12");
-  }
-  return str.split("~").map((ym) => {
-    const [y, d] = ym.split("/");
-    return { y: Number(y), m: Number(d) };
-  });
-};
+
 
 // type month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 type month = number;
@@ -35,6 +24,19 @@ const initIntRange = (s: number, e: number) => {
     result.push(i);
   }
   return result;
+};
+
+const parseDateRangeStr = (str: string) => {
+  if (
+    str.split("~").length != 2 ||
+    str.split("~").some((ym) => ym.split("/").length !== 2)
+  ) {
+    throw new Error("起始格式错误，格式应为2021/1 ～ 2023/12");
+  }
+  return str.split("~").map((ym) => {
+    const [y, d] = ym.split("/").map(s=>s.trim());
+    return { y: Number(y), m: Number(d) };
+  });
 };
 
 //获取日期范围
