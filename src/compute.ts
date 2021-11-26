@@ -13,10 +13,10 @@ export const getHomeRentAfterSharingBy = (peopleNum: number) =>
 // 如果写了第三个参数，就每个月按第三个数算
 // 如果没写第三个参数，每个月工资就按“/data/工资”文件那样地算
 export const getEveryMonthRest = (
-  dateRange: monthObj[],
-  fixedPayMonthly: number[],
-  floatPay: dateValueArr[],
-  wage?: number
+  dateRange: monthObj[],// 日期范围对象数组
+  fixedPayMonthly: number[], // 每月固定支出
+  floatPay: dateValueArr[], // 每月浮动支出
+  wage?: number // 工资
 ) =>
   dateRange.map(({ year, month }) => {
     const theWage = wage ? wage : getValue(工资_monthlyList, year, month);
