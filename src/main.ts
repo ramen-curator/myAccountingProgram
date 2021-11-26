@@ -7,10 +7,11 @@ import { getHomeRentAfterSharingBy, getLoanValue } from "./compute";
 import 工资_monthlyList from "./data/工资";
 import { getValue } from "./helper";
 
-const comingDate = getDateRange({ y: 2021, m: 12 }, { y: 2023, m: 3 });
+// 开始年份月份，结束年份月份
+const dateRange = getDateRange({ y: 2021, m: 12 }, { y: 2023, m: 3 });
 
 const getEveryMonthRest = (needPay: number[]) =>
-  comingDate.map(({ y, m }) => {
+  dateRange.map(({ y, m }) => {
     return {
       year: y,
       month: m,
@@ -27,7 +28,7 @@ const needPay = [];
 needPay.push(getHomeRentAfterSharingBy(2));
 console.log("每个月剩钱", getEveryMonthRest(needPay));
 
-const 贷款总额 = comingDate.reduce((s, { y, m }) => {
+const 贷款总额 = dateRange.reduce((s, { y, m }) => {
   return s + getLoanValue(y, m);
 }, 0);
 console.log("贷款总额", 贷款总额.toFixed(2));
