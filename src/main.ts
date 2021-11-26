@@ -5,7 +5,6 @@ import 工资_monthlyList from "./data/工资";
 import { getValue } from "./helper";
 
 // 开始年份月份，结束年份月份
-// const dateRange = getDateRange({ y: 2021, m: 12 }, { y: 2023, m: 3 });
 const dateRange = getDateRange("2021/12 ~ 2023/3");
 
 // 获取每月剩钱，
