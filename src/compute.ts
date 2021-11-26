@@ -15,6 +15,7 @@ export const getHomeRentAfterSharingBy = (peopleNum: number) =>
 export const getEveryMonthRest = (
   dateRange: monthObj[],
   fixedPayMonthly: number[],
+  floatPay: dateValueArr[],
   wage?: number
 ) =>
   dateRange.map(({ year, month }) => {
@@ -25,8 +26,8 @@ export const getEveryMonthRest = (
       value: Number(
         (
           theWage -
-          getValue(贷款, year, month)-
-          fixedPayMonthly.reduce((s, v) => s + v, 0)
+          fixedPayMonthly.reduce((s, v) => s + v, 0) -
+          floatPay.reduce((s, a) => s + getValue(a, year, month), 0)
         ).toFixed(2)
       ),
     };
