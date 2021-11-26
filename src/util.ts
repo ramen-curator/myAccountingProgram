@@ -1,5 +1,8 @@
 import { month, monthObj, dateValueArr } from "./constant";
 import { getValue } from "./helper";
+// 这种import引入方式才有typescript提示
+import * as fs from "fs";
+import * as path from "path";
 
 export const getObjSum = (o: { [name: string]: number }) =>
   Object.keys(o).reduce((s, k) => s + o[k], 0);
@@ -79,4 +82,38 @@ export const getDateRange = (dateRangeStr: string) => {
 
     return [...monthsStartYear, ...years, ...monthsEndYear];
   }
+};
+
+/**
+ * 本函数主要用于 import 调用了该函数的文件 的目录下的其他文件，然后export出去
+ *
+ * @param basename 是指调用处文件的名字，比方index.js
+ * @param dirname 调用处文件的路径
+ * @param files import文件后存放的地方
+ * @returns files
+ */
+export const importantAllTheFile = (
+  basename: string,
+  dirname: string,
+  files: dateValueArr[]
+) => {
+  // readdirSync读取目录的内容。
+  fs.readdirSync(dirname)
+    .filter(
+      (file) =>
+        // 搜索这种文件：
+        // 1. 不该包含前缀.
+        // 2. 与本文件不同名
+        // 3. 后缀要为.js。不写ts的原因是，在编译后ts文件会变成js文件
+        file.indexOf(".") !== 0 &&
+        file !== basename &&
+        file.slice(-3) === ".js" &&
+        !file.includes("constant") // 常量文件constant就不用导出了
+    )
+    .map((fileBasename) => {
+      const filePath = path.join(dirname, fileBasename);
+      files.push(require(filePath).default); // 默认会带一个default
+    });
+
+  return files;
 };
