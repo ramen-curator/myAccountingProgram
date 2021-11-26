@@ -1,3 +1,3 @@
 #!/bin/bash
-tsc --project ./tsconfig.json
+npx tsc --project ./tsconfig.json
 node ./dist/main

@@ -9,7 +9,8 @@
   "author": "赖铭志 <mz.lai@foxmail.com>",
   "license": "ISC",
   "dependencies": {
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
   },
   "devDependencies": {
     "@types/node": "^16.11.10"
