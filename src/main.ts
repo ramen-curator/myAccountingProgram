@@ -12,15 +12,15 @@ import {
 const dateRangeStr = "2021/12 ~ 2023/3";
 const dateRange = getDateRange(dateRangeStr);
 
-const needPay = [];
-needPay.push(getObjSum(最低生活水平))
-needPay.push(getHomeRentAfterSharingBy(2)); // 应付房租
+const fixedPayMonthly = [];
+fixedPayMonthly.push(getObjSum(最低生活水平))
+fixedPayMonthly.push(getHomeRentAfterSharingBy(2)); // 应付房租
 console.log(dateRangeStr);
-console.log("每个月剩钱", getEveryMonthRest(dateRange, needPay));
+console.log("每个月剩钱", getEveryMonthRest(dateRange, fixedPayMonthly));
 console.log("期间贷款总额", getLoanTotalFromRange(dateRange));
 console.log(
   "期间剩钱总额",
-  getRestTotalFromRange(getEveryMonthRest(dateRange, needPay))
+  getRestTotalFromRange(getEveryMonthRest(dateRange, fixedPayMonthly))
 );
 console.log("期间工资合计", getWageTotalFromRange(dateRange))
 
