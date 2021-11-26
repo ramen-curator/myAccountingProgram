@@ -3,7 +3,7 @@ import 工资_monthlyList from "./data/工资";
 import 贷款 from "./data/贷款";
 import { getValue } from "./helper";
 import { getObjSum, getValueTotal, getTotalFromRange } from "./util";
-import { monthObj } from "./constant";
+import { dateValueArr, monthObj } from "./constant";
 
 // 合租后的房租
 export const getHomeRentAfterSharingBy = (peopleNum: number) =>
@@ -27,12 +27,14 @@ export const getEveryMonthRest = (
     return {
       year,
       month,
-      value: (
-        theWage -
-        getObjSum(最低生活水平) -
-        getLoanValue(year, month) -
-        needPay.reduce((s, v) => s + v, 0)
-      ).toFixed(2),
+      value: Number(
+        (
+          theWage -
+          getObjSum(最低生活水平) -
+          getLoanValue(year, month) -
+          needPay.reduce((s, v) => s + v, 0)
+        ).toFixed(2)
+      ),
     };
   });
 
@@ -43,3 +45,7 @@ export const getLoanTotalFromRange = (dateRange: monthObj[]) => {
   }, 0);
   return Number(result.toFixed(2));
 };
+
+// 获取剩钱总额
+export const getRestTotalFromRange = (dateValueArr: dateValueArr) =>
+  getValueTotal(dateValueArr);
