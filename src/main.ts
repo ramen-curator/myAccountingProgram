@@ -1,4 +1,5 @@
-import { getDateRange } from "./util";
+import { lowestLife as 最低生活水平 } from "./data/constant";
+import { getObjSum, getDateRange } from "./util";
 import {
   getHomeRentAfterSharingBy,
   getEveryMonthRest,
@@ -12,6 +13,7 @@ const dateRangeStr = "2021/12 ~ 2023/3";
 const dateRange = getDateRange(dateRangeStr);
 
 const needPay = [];
+needPay.push(getObjSum(最低生活水平))
 needPay.push(getHomeRentAfterSharingBy(2)); // 应付房租
 console.log(dateRangeStr);
 console.log("每个月剩钱", getEveryMonthRest(dateRange, needPay));

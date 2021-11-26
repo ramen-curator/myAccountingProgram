@@ -9,7 +9,7 @@ import { dateValueArr, monthObj } from "./constant";
 export const getHomeRentAfterSharingBy = (peopleNum: number) =>
   homeRent / peopleNum;
 
-// 获取每月剩钱，是工资-最低生活水平-贷款-每月买点啥
+// 获取每月剩钱
 // 如果写了第三个参数，就每个月按第三个数算
 // 如果没写第三个参数，每个月工资就按“/data/工资”文件那样地算
 export const getEveryMonthRest = (
@@ -25,7 +25,6 @@ export const getEveryMonthRest = (
       value: Number(
         (
           theWage -
-          getObjSum(最低生活水平) -
           getValue(贷款, year, month)-
           needPay.reduce((s, v) => s + v, 0)
         ).toFixed(2)
