@@ -9,6 +9,7 @@ sudo chmod 777 ./run.sh
 npm start
 ```
 ## Win
+### 如果你要在vscode里跑
 1. git bash会装吧，装好后路径放环境变量里
 2. vscode的settings.json里，加上`"terminal.integrated.defaultProfile.windows":"Git Bash",`
 3. 重启vscode
@@ -17,6 +18,14 @@ npm start
 npm install
 npm run win
 ```
+### 如果你要在命令行里跑
+1. git bash会装吧，装好后路径放环境变量里
+2. 打开命令行
+```
+npm install
+npm run win
+```
+
 
 # 用法
 1. 在data文件里写下你每个月的贷款值、工资值
