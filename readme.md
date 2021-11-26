@@ -22,4 +22,5 @@ npm run win
 1. 在data文件里写下你每个月的贷款值、工资值
 2. 在data/constant文件里写下房租、最低生活水平、工资（如果每个月都一样的话）
 3. 在./main里写下开始时间和结束时间，必要的话你可以改改计算行为
-4. Windows:`npm run win`, Mac: `npm start`，命令行看结果
+4. Windows: `npm run win`, Mac: `npm start`  
+命令行看结果
