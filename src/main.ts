@@ -1,7 +1,6 @@
 import { getDateRange } from "./util";
 import {
   getHomeRentAfterSharingBy,
-  getLoanValue,
   getEveryMonthRest,
   getLoanTotalFromRange,
   getRestTotalFromRange,
