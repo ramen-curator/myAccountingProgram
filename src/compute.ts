@@ -35,3 +35,11 @@ export const getEveryMonthRest = (
       ).toFixed(2),
     };
   });
+
+// 获取期间贷款总额
+export const getLoanTotal = (dateRange: monthObj[]) => {
+  const result = dateRange.reduce((s, { year, month }) => {
+    return s + getLoanValue(year, month);
+  }, 0);
+  return Number(result.toFixed(2));
+};
