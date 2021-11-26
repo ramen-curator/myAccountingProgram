@@ -1,7 +1,26 @@
-import { month, monthObj } from "./constant";
+import { month, monthObj, dateValueArr } from "./constant";
+import { getValue } from "./helper";
 
 export const getObjSum = (o: { [name: string]: number }) =>
   Object.keys(o).reduce((s, k) => s + o[k], 0);
+
+// 获取值总额
+export const getValueTotal = (dateValueArr: dateValueArr) => {
+  const result = dateValueArr.reduce((s, { value: v }) => s + v, 0);
+  return Number(result.toFixed(2));
+};
+
+// 获取期间值总额
+export const getTotalFromRange = (
+  dateRange: monthObj[],
+  dateValueArr: dateValueArr
+) => {
+  const result = dateRange.reduce(
+    (s, { year, month }) => s + getValue(dateValueArr, year, month),
+    0
+  );
+  return Number(result.toFixed(2));
+};
 
 const initMonthsInAYear = (y: number, sm: month, em: month) => {
   const result: monthObj[] = [];
