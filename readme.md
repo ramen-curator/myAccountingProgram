@@ -8,9 +8,18 @@ npm install
 sudo chmod 777 ./run.sh
 npm start
 ```
+## Win
+1. git bash会装吧，装好后路径放环境变量里
+2. vscode的settings.json里，加上`"terminal.integrated.defaultProfile.windows":"Git Bash",`
+3. 重启vscode
+4. 打开终端 
+```
+npm install
+npm run win
+```
 
 # 用法
 1. 在data文件里写下你每个月的贷款值、工资值
 2. 在data/constant文件里写下房租、最低生活水平、工资（如果每个月都一样的话）
 3. 在./main里写下开始时间和结束时间，必要的话你可以改改计算行为
-4. `npm start`，命令行看结果
+4. Windows:`npm run win`, Mac: `npm start`，命令行看结果

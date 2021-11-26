@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "bash ./run.sh"
+    "start": "./run.sh",
+    "win": "bash ./run.sh"
   },
   "author": "赖铭志 <mz.lai@foxmail.com>",
   "license": "ISC",
