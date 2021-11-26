@@ -5,9 +5,11 @@ import 工资_monthlyList from "./data/工资";
 import { getValue } from "./helper";
 
 // 开始年份月份，结束年份月份
-const dateRange = getDateRange({ y: 2021, m: 12 }, { y: 2023, m: 3 });
+// const dateRange = getDateRange({ y: 2021, m: 12 }, { y: 2023, m: 3 });
+const dateRange = getDateRange("2021/12~2023/3");
 
-const getEveryMonthRest = (needPay: number[], wage?: number) =>
+// 获取每月剩钱，
+const getEveryMonthRest = (dateRange, needPay: number[], wage?: number) =>
   dateRange.map(({ y, m }) => {
     const theWage = wage ? wage : getValue(工资_monthlyList, y, m);
     return {
@@ -24,14 +26,14 @@ const getEveryMonthRest = (needPay: number[], wage?: number) =>
 
 const needPay = [];
 needPay.push(getHomeRentAfterSharingBy(2));
-console.log("每个月剩钱", getEveryMonthRest(needPay));
+console.log("每个月剩钱", getEveryMonthRest(dateRange,needPay));
 
 const 贷款总额 = dateRange.reduce((s, { y, m }) => {
   return s + getLoanValue(y, m);
 }, 0);
 console.log("贷款总额", 贷款总额.toFixed(2));
 
-const 余钱总额 = getEveryMonthRest(needPay).reduce((s, { value }) => {
+const 余钱总额 = getEveryMonthRest(dateRange,needPay).reduce((s, { value }) => {
   return s + Number(value);
 }, 0);
 console.log("余钱总额", 余钱总额.toFixed(2));

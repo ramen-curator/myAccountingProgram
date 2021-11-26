@@ -1,7 +1,21 @@
 export const getObjSum = (o: { [name: string]: number }) =>
   Object.keys(o).reduce((s, k) => s + o[k], 0);
 
-type month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+const parseDateRangeStr = (str: string) => {
+  if (
+    str.split("~").length != 2 ||
+    str.split("~").some((ym) => ym.split("/").length !== 2)
+  ) {
+    throw new Error("起始格式错误，格式应为2021/1～2023/12");
+  }
+  return str.split("~").map((ym) => {
+    const [y, d] = ym.split("/");
+    return { y: Number(y), m: Number(d) };
+  });
+};
+
+// type month = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type month = number;
 interface monthObj {
   y: number;
   m: month;
@@ -24,7 +38,9 @@ const initIntRange = (s: number, e: number) => {
 };
 
 //获取日期范围
-export const getDateRange = (startDate: monthObj, endDate: monthObj) => {
+export const getDateRange = (dateRangeStr: string) => {
+  const [startDate, endDate] = parseDateRangeStr(dateRangeStr);
+
   const diffYear = endDate.y - startDate.y; // 相差几年
   const diffMonth = endDate.m - startDate.m; // 同一年时，相差几月
   if (diffYear < 0 || (diffYear === 0 && diffMonth < 0))
