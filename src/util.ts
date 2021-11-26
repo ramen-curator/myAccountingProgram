@@ -114,3 +114,29 @@ export const importantAllTheFile = (basename: string, dirname: string) => {
 
   return files;
 };
+
+const findOutDateRange = (dateValueArr: dateValueArr) => {
+  const minYear = Math.min(...dateValueArr.map((o) => o.year));
+  const minYearArr = dateValueArr.filter((o) => o.year === minYear);
+  const minMonth = Math.min(...minYearArr.map((o) => o.month));
+
+  const maxYear = Math.max(...dateValueArr.map((o) => o.year));
+  const maxYearArr = dateValueArr.filter((o) => o.year === maxYear);
+  const maxMonth = Math.max(...maxYearArr.map((o) => o.month));
+  
+  return getDateRange(`${minYear}/${minMonth}~${maxYear}/${maxMonth}`);
+};
+
+export const getDateValueArrFromFiles = (
+  files: dateValueArr[]
+): dateValueArr => {
+  const dateRange = findOutDateRange(files.flat(1));
+  const result = dateRange.map(({ year, month }) => {
+    return {
+      year,
+      month,
+      value: files.reduce((s, a) => s + getValue(a, year, month), 0),
+    };
+  });
+  return result;
+};
